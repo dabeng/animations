@@ -1,3 +1,10 @@
+// =============================
+// Utility class
+// =============================
+.hidden {
+  display: none!important;
+}
+
 //
 // Animatioms
 // --------------------------------------------------
@@ -78,11 +85,26 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  display: none;
   .box--circle {
     width: 12em;
     height: 12em;
     z-index: 999999999;
+    transition: opacity .2s ease-out;
+  }
+  .home__top-bg, .home__bottom-bg {
+    transition: transform .2s ease-out;
+  }
+}
+
+.home.logged-in {
+  .home__top-bg {
+    transform: translateY(-80%);
+  }
+  .home__bottom-bg {
+    transform: translateY(80%);
+  }
+  .logo {
+    opacity: 0;
   }
 }
 
@@ -197,13 +219,18 @@ main {
   position: fixed;
   right: 0;
   left: 0;
-  top: 3.5em;
+  top: 10em;
   bottom: 0;
   overflow: hidden;
   overflow-y: auto;
   width: 100%;
   padding: 1em;
   z-index: $z-index-list;
+  transition: top .2s ease-out;
+}
+
+.list.slide-in {
+  top: 3.5em;
 }
 
 .card {
